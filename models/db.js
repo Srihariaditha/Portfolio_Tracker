@@ -45,7 +45,7 @@ const  securitySchema = new  Schema({
   trades: [tradeSchema]
 })
 
-var Security = mongoose.model('Secuirty', securitySchema)
+var Security = mongoose.model('Security', securitySchema)
 
 //exporting out Schema's
 module.exports = {
