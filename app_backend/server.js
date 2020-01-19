@@ -4,6 +4,7 @@ require('dotenv').config();
 //setting up server
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const mongoose = require('mongoose');
 
 //connecting to our database
@@ -14,11 +15,12 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log('connected to database'))
 
+app.use(cors())
 //setting up server to open JSON
 app.use(express.json())
 
 //tell the server about the routes it needs to handle and useNewUrlParser
 const portfolioTracker = require('./routes/portfolioTracker')
-app.use('/portfolio', portfolioTracker)
+app.use('/', portfolioTracker)
 
-app.listen(8000, ()=> console.log('Server Started'));
+app.listen(8000, ()=> console.log('Server Started on Port '+ 8000));
