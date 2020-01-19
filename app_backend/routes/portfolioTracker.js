@@ -4,8 +4,8 @@ const router = express.Router();
 const dbSchema = require('../models/db')
 
 
-//adding a new trade to a portfolio -
-router.post('/', async function(req,res) {
+//adding a new Security to a portfolio -
+router.post('/addSecurity', async function(req,res) {
   //Add trade in portfolio
   console.log('In Update to buy trade with: '+ req.query)
   const security = new dbSchema.Security({
@@ -28,7 +28,7 @@ router.post('/', async function(req,res) {
 })
 
 //update the portifolio when a trade is brought
-router.patch('/buy/:ticker', getSecurity, async (req,res) => {
+router.patch('/buyTrade/:ticker', getSecurity, async (req,res) => {
   console.log('In Update to buy trade with: '+ res.security)
   if(req.query.numOfShares != null && req.query.pricePerShare!= null){
     //update Avg price of trade
@@ -57,7 +57,7 @@ router.patch('/buy/:ticker', getSecurity, async (req,res) => {
 })
 
 //update the portifolio when a trade is sold
-router.patch('/sell/:ticker', getSecurity, async (req,res) => {
+router.patch('/sellTrade/:ticker', getSecurity, async (req,res) => {
   console.log('In update to SellTrade with: '+ req.query)
   if(res.security!=null){
     ticker = res.security.companyTicker
@@ -85,7 +85,7 @@ router.patch('/sell/:ticker', getSecurity, async (req,res) => {
     }
 })
 //remove one security
-router.delete('/:ticker', getSecurity, async (req,res) => {
+router.delete('/deleteSecurity/:ticker', getSecurity, async (req,res) => {
   console.log("In delete" + res.security)
   try{
     await res.security.remove();
@@ -96,7 +96,7 @@ router.delete('/:ticker', getSecurity, async (req,res) => {
 })
 
 //get all securities currently held in a portfolio
-router.get('/', async function(req,res) {
+router.get('/allSecurities', async function(req,res) {
   console.log('In get all securities with: '+ req.params)
   try{
     const portfolio = await dbSchema.Security.find({},{companyTicker: true, avgPrice: true, sharesLeft: true})
