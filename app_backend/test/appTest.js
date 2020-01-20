@@ -80,7 +80,7 @@ describe("CRUD Operations", function(){
         })
   })
 
-  it(' 6 should add a trade to a security', (done)=> {
+  it(' 6 should add a trade to a Portfolio', (done)=> {
     console.log("Adding a trade by test")
     chai.request(server)
         .patch('/buyTrade/'+securities[2].companyTicker)
@@ -98,12 +98,12 @@ describe("CRUD Operations", function(){
         })
   })
 
-  it('7 : should sell a trade of security', (done)=> {
+  it('7 : should sell a trade of Portfolio', (done)=> {
     console.log("Selling a trade")
     chai.request(server)
         .patch('/sellTrade/'+securities[2].companyTicker)
         .send({
-          "pricePerShare": "300",
+        //  "pricePerShare": "300",
           "numOfShares": "20"})
         .end((err,res) => {
           res.should.have.status(200)
