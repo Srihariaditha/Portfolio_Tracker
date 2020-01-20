@@ -1,23 +1,28 @@
 {
-  "name": "PortFolio_Tracker",
+  "name": "app_backend",
   "version": "1.0.0",
-  "description": "An API to manage Portfolio Securties",
   "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "mocha",
-    "devStart": "nodemon server.js"
+    "start": "node server.js"
   },
-  "author": "Srihari A",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.2.0",
     "dotenv": "^8.2.0",
-    "mocha": "^7.0.0",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.8.7"
-  }
+    "mocha": "^7.0.0",
+    "mongoose": "^5.8.9"
+  },
+  "description": ""
 }
