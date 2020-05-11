@@ -434,7 +434,11 @@ module.exports = function(webpackEnv) {
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                sourceMap: isEnvProduction && shouldUseSourceMap,
+                sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
+                modules: {
+                  getLocalIdent: getCSSModuleLocalIdent,
+                  localIdentName: '[name]__[local]__[hash:base64:5]'
+                },
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -448,9 +452,10 @@ module.exports = function(webpackEnv) {
               test: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
-                sourceMap: isEnvProduction && shouldUseSourceMap,
+                sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
                 modules: {
                   getLocalIdent: getCSSModuleLocalIdent,
+                  localIdentName: '[name]__[local]__[hash:base64:5]'
                 },
               }),
             },

@@ -1,16 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Header from './Components/Header'
-import Main from './Components/Main'
+import React, {Component} from 'react';
+import Layout from './Components/Layout/Layout'
+import BurgerBuilder from './Containers/BurgerBuilder/BurgerBuilder'
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Main />
-    </div>
-  );
+class App extends Component{
+  render(){
+    return (
+      <div>
+        <Layout>
+          <BurgerBuilder/> 
+        </Layout>
+      </div>
+    );
+  }
 }
 
 export default App;
