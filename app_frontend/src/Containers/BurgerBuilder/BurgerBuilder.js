@@ -81,6 +81,7 @@ class BurgerBuilder extends Component{
   
   purchaseContineHandler = () => {
     alert("You Purchased");
+    this.purchaseCancelHandler()
   }
   
   render(){
@@ -90,7 +91,7 @@ class BurgerBuilder extends Component{
     for(let key in disabledInfo){
       disabledInfo[key] = disabledInfo[key] <= 0
     }
-    console.log(disabledInfo)
+    //console.log(disabledInfo)
     return(
       <Aux>
           <Burger ingredients={this.state.ingredients} />
