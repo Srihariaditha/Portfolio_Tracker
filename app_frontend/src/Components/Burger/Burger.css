@@ -5,7 +5,6 @@
   overflow: unset;
   text-align: center;
   font-weight: bold;
-  margin-top: 100px;
   font-size: 1.2rem;
 }
 
@@ -13,7 +12,7 @@
   .Burger{
     width: 700px;
     height: 600px;
-    margin-top: 100px;
+    /* margin-top: 100px; */
   }
 }
 
@@ -21,7 +20,7 @@
   .Burger{
     width: 450px;
     height: 400px;
-    margin-top: 100px;
+    /* margin-top: 100px; */
   }
 }
 
@@ -29,6 +28,6 @@
   .Burger{
     width: 350px;
     height: 300px;
-    margin-top: 100px;
+    /* margin-top: 100px; */
   }
 }
